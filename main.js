@@ -3,9 +3,10 @@ let app = new Vue({
     el: "#app",
 
     data: {
-        show: 'grid',
+        show: localStorage.getItem('show'),
         apiRequest: new XMLHttpRequest(),
-        cats: {}
+        cats: {},
+        view: ''
         // xhr.done(function(data) { console.log("success got data", data); });
 
     },
@@ -59,20 +60,42 @@ let app = new Vue({
 
                 this.cats = JSON.parse(this.apiRequest.responseText).data;
 
-                // for (let i = 0; i < this.cats.length; i++) {
-                //   this.cats.data.images.original.url;
-                //
-                // }
-                  console.log(this.cats);
 
 
-            }
-            else {
+
+            } else {
                 this.onError()
 
             }
 
-        }
+        },
+
+          saveInput: function () {
+
+          console.log('You pushed the button!');
+
+          let input = this.show;
+
+            if (this.show == 'grid') {
+
+              localStorage.setItem('show', input);
+              }
+
+            if (this.show == 'list') {
+
+              localStorage.setItem('show', input);
+            }
+
+        // // Get the value from the input field
+        // let input = color.value;
+        //
+        // // Save the value in localstorage
+        // localStorage.setItem("favorite_color", input);
+        //
+        // // Update the message to show we've saved the input
+        // message.innerHTML = "I just saved <strong>" + input + "</strong> as your favorite color.";
+
+      }
 
     }
 

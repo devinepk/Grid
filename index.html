@@ -25,18 +25,18 @@
 
         <div class="p-5 bg-light">
 
-            <div id="list" class="" v-if="showList">
+            <div id="list" class="grid-wrapper" v-if="showList">
                 <ul class="list-unstyled">
                     <li v-for="cat in cats" class="pb-3 row">
-                        <a class="col-sm-2" v-bind:href="cat.url"><img v-bind:src="cat.url"></a>
-                        <a class="col-sm-10 text-truncate" v-bind:href="cat.url">{{ cat.url }}</a>
+                        <a class="col-sm-3" v-bind:href="cat.images.original.url.gif"><img v-bind:src="cat.images.original.url"></a>
+                        <a class="col-sm-10 text-truncate" v-bind:href="cat.images.original.url">{{ cat.embed_url }}</a>
                     </li>
                 </ul>
             </div>
 
             <div id="grid" class="grid-wrapper" v-if="showGrid">
                 <div v-for="cat in cats">
-                    <a v-bind:href="cat.url"><img v-bind:src="cat.url"></a>
+                    <a v-bind:href="cat.images.original.url"><img v-bind:src="cat.images.original.url"></a>
                 </div>
             </div>
 

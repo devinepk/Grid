@@ -25,11 +25,7 @@ let app = new Vue({
     created: function () {
 
         // Format a url
-        let url = 'http://api.giphy.com/v1/gifs/search?q=cats&api_key=3o0fsEzz2T1gTRsj9hczHWjX35yEFo3b&limit=30';
-
-
-
-
+        let url = 'http://api.giphy.com/v1/gifs/search?q=cats&api_key=3o0fsEzz2T1gTRsj9hczHWjX35yEFo3b&limit=20';
 
         // Fetch from the url
         this.apiRequest.onload = this.onSuccess;
@@ -61,7 +57,7 @@ let app = new Vue({
 
             if (this.apiRequest.status == "200") {
 
-                this.cats = JSON.parse(this.apiRequest.responseText);
+                this.cats = JSON.parse(this.apiRequest.responseText).data;
 
                 // for (let i = 0; i < this.cats.length; i++) {
                 //   this.cats.data.images.original.url;
